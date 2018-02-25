@@ -4,7 +4,7 @@
   "description": "Dummy API for a sample app",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "dealeron",
   "license": "ISC",
