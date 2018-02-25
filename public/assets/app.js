@@ -30,7 +30,7 @@ function GreatScientists() {
 
   // GET REQUEST FOR SCIENTIST DATA TO STORE AND ADD TO SCIENTIST CONTAINER DOM
   this.getScientists = () => {
-    fetch('http://localhost:3000/data')
+    fetch('/data')
       .then(response => response.json())
       .then(data => {
         for (let i = 0; i < data.length; i++) {
@@ -63,7 +63,7 @@ function GreatScientists() {
     document.getElementById('form_image_url').value = '';
 
     // POST REQUEST AND ADDITION OF NEW SCIENTIST TO TOP OF SCIENTIST CONTAINER DOM
-    fetch('http://localhost:3000/data', {
+    fetch('/data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
