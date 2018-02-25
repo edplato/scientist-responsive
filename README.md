@@ -1,4 +1,8 @@
-# Dummy Data API
+# Demo App using Dummy Data API, HTML, CSS, and JavaScript
+
+## Follow install instructions below and access demo app at http://127.0.0.1:3000/
+
+# Dummy Data API Install Instructions
 Simple server exposing *dummy* data to build a sample app.
 
 ## Usage

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Quicksand" >
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="text/javascript" src="./assets/app.js"></script>
+  <title>Great Contributors to Modern Science</title>
+</head>
+<body onload="gs.getScientists()">
+  <div id="app">
+    <header class="outer-bg">
+      <div class="title">
+        <img class="icon" src="./assets/science.png"/>
+        <h1>Great Contributors to Modern Science</h1>
+      </div>
+      <div class="sort-area">
+        <p class="sort-title">Sort By</p>
+        <div class="sort-buttons">
+          <label>Last Name</label>
+          <label>Birthdate</label>
+            <button type="button" name="a-zsort" onclick="gs.sortScientists('nameAZ')">A-Z</button>
+            <button type="button" name="new-oldsort" onclick="gs.sortScientists('dateNewOld')">Newest-Oldest</button>
+            <button type="button" name="z-asort" onclick="gs.sortScientists('nameZA')">Z-A</button>
+            <button type="button" name="old-newsort" onclick="gs.sortScientists('dateOldNew')">Oldest-Newest</button>
+        </div>
+      </div>
+    </header>
+    <section class="main-content">
+      <div class="scientist-container"></div>
+    </section>
+    <section class="scientist-input">
+      <form action="javascript:gs.addScientist()">
+          <div class="textInputContainer">
+            <div class="formInput">
+              <label for="name">Name</label>
+              <input type="text" id="form_name" name="name" maxlength="30" required />
+            </div>
+            <div class="formInput">
+              <label for="birthday">Birthday</label>
+              <input type="date" id="form_birthday" name="birthday" required />
+            </div>
+            <div class="formInput">
+              <label for="quote">Quote</label>
+              <textarea type="text" id="form_quote" name="quote" maxlength="100" required></textarea>
+            </div>
+            <div class="formInput">
+              <label for="image">Image URL</label>
+              <input type="url" id="form_image_url" name="image" required />
+            </div>
+            <div class="buttons">
+              <input class="submit-button" type="submit" value="ADD SCIENTIST" />
+            </div>
+          </div>
+        </form>
+    </section>
+    <footer class="outer-bg">
+      <p>Great Contributors to Modern Science &copy; 2018</p>
+    </footer>
+  </div>
+</body>
+</html>

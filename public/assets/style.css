@@ -1,0 +1,310 @@
+/* MAIN APP */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 300px;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+  margin: 0;
+}
+
+button, input[type='submit'] {
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: footer;
+  border-top: 2px solid rgba(34,34,34,0.7);
+  padding-left: 5px;
+}
+
+#app {
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+  -ms-grid-columns: 4fr 1fr;
+      grid-template-columns: 4fr 1fr;
+  -ms-grid-rows: 1fr 8fr 0.5fr;
+      grid-template-rows: 1fr 8fr 0.5fr;
+              grid-template-areas:
+    "header   header"
+    "content  inputarea"
+    "footer   footer"
+}
+
+.outer-bg {
+  background: #6D37DA;
+  background: -webkit-gradient(linear, left top, right top, from(#6D37DA), to(#A250E5));
+  background: -webkit-linear-gradient(left, #6D37DA, #A250E5);
+  background: -o-linear-gradient(left, #6D37DA, #A250E5);
+  background: linear-gradient(to right, #6D37DA, #A250E5);
+  color: #fff;
+}
+
+/*HEADER*/
+header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  border-bottom: 2px solid rgba(34,34,34,0.7);
+}
+
+.title {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 11fr;
+      grid-template-columns: 1fr 11fr;
+}
+
+.title h1 {
+  text-shadow: 1px 3px 0 rgba(0,0,0,0.3);
+  font-size: calc(26px + 6 * ((100vw - 320px) / 480));
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 100;
+  letter-spacing: 2px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.icon {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+    -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+/*HEADER SORT AREA*/
+.sort-area {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr;
+      grid-template-columns: 1fr 4fr;
+  border-left: 4px solid rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.2);
+  padding: 5px 10px 10px 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sort-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 1px 1px #222;
+}
+
+.sort-buttons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.sort-buttons label {
+  text-align: center;
+}
+
+.sort-buttons button {
+  border: 1px solid #222;
+  padding: 3px;
+  margin: 2px;
+  font-weight: bold;
+  background-color: #4e4e4e;
+  color: #fff;
+}
+
+.sort-buttons button:hover {
+  background-color: rgba(134,128,145,1);
+}
+
+/*MAIN APP CONTAINER*/
+.main-content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: content;
+  background: #8D8393;
+  background: -webkit-gradient(linear, left top, right top, from(#fff), to(#8D8393));
+  background: -webkit-linear-gradient(left, #fff, #8D8393);
+  background: -o-linear-gradient(left, #fff, #8D8393);
+  background: linear-gradient(to right, #fff, #8D8393);
+  overflow: auto;
+}
+
+.scientist-input {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: inputarea;
+  margin: 10px auto;
+}
+
+/*SCIENTIST ELEMENTS*/
+.scientist-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: ( minmax(280px, 1fr) )[auto-fit];
+      grid-template-columns: repeat( auto-fit, minmax(280px, 1fr) );
+}
+
+.scientist {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 40px 40px 120px 150px;
+      grid-template-rows: 40px 40px 120px 150px;
+  margin: 10px;
+  padding: 5px;
+  min-height: 300px;
+  border: 1px solid #222;
+  background: #fff;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.name {
+  margin: 0;
+}
+
+.birthday {
+  color: #222;
+}
+
+.quote {
+  min-height: 50px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.scientist img {
+  max-width: 100%;
+  height: 150px;
+  margin: 5px auto;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.8s linear;
+  -o-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+}
+
+.loadingImage {
+  height: 120px;
+  width: 300px;
+  background-color: #fff;
+  background-image: url('./loading.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px;
+  opacity: 0.4;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+/*FORM ELEMENTS*/
+.textInputContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (minmax(50px, 1fr))[4];
+      grid-template-rows: repeat(4, minmax(50px, 1fr));
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  display: inline-block;
+  margin: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  height: 30px;
+  display: inline-block;
+  border: 1px solid #222;
+  font-family: inherit;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.buttons input {
+  height: 60px;
+}
+
+.submit-button {
+  text-align: center;
+  margin-top: 75px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-shadow:
+      -0.5px -0.5px 0 rgba(0,0,0,0.7),
+      0.5px -0.5px 0 rgba(0,0,0,0.7),
+      -0.5px 0.5px 0 rgba(0,0,0,0.7),
+      0.5px 0.5px 0 rgba(0,0,0,0.7);
+  background-color: rgba(18, 181, 255, 0.85);
+}
+
+.submit-button:hover {
+  background-color: rgba(123, 227, 255, 1);
+}
+
+/*MEDIA QUERIES FOR RESPONSIVENESS AND SMALL DEVICE STYLING*/
+@media (max-width: 700px) {
+  #app {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+                grid-template-areas:
+      "header"
+      "content"
+      "inputarea"
+      "footer"
+  }
+  header {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .title h1 {
+    padding-left: 20px;
+  }
+  .sort-area {
+    border-left: none;
+    border-top: 2px solid #fff;
+  }
+  .main-content {
+    overflow: visible;
+  }
+  .submit-button {
+    margin-top: 5px;
+  }
+  footer {
+    text-align: center;
+  }
+}
