@@ -29,18 +29,33 @@ function GreatScientists() {
   };
 
   // GET REQUEST FOR SCIENTIST DATA TO STORE AND ADD TO SCIENTIST CONTAINER DOM
+  // this.getScientists = () => {
+  //   fetch('/data')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       for (let i = 0; i < data.length; i++) {
+  //         this.scientistStore.push(data[i]);
+  //         let scientist = this.createScientist(data[i]);
+  //         document.querySelector('.scientist-container').insertAdjacentHTML('beforeend', scientist);
+  //       }
+  //     });
+  // };
+
   this.getScientists = () => {
-    fetch('/data')
-      .then(response => response.json())
-      .then(data => {
-        for (let i = 0; i < data.length; i++) {
-          this.scientistStore.push(data[i]);
-          let scientist = this.createScientist(data[i]);
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/data');
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        let scientists = JSON.parse(xhr.responseText);
+        for (let i = 0; i < scientists.length; i++) {
+          this.scientistStore.push(scientists[i]);
+          let scientist = this.createScientist(scientists[i]);
           document.querySelector('.scientist-container').insertAdjacentHTML('beforeend', scientist);
         }
-      });
+      }
+    };
+    xhr.send();
   };
-
   // POST REQUEST TO ADD NEW SCIENTIST THROUGH DATA VALUES FROM THE FORM ELEMENT
   this.addScientist = () => {
     // HANDLE DATE FORMATTING FOR API CONSISTENCY
@@ -63,18 +78,30 @@ function GreatScientists() {
     document.getElementById('form_image_url').value = '';
 
     // POST REQUEST AND ADDITION OF NEW SCIENTIST TO TOP OF SCIENTIST CONTAINER DOM
-    fetch('/data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newScientist)
-    })
-      .then(data => {
+    // fetch('/data', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(newScientist)
+    // })
+    //   .then(data => {
+    //     this.scientistStore.push(newScientist);
+    //     let scientist = this.createScientist(newScientist);
+    //     document.querySelector('.scientist-container').insertAdjacentHTML('afterbegin', scientist);
+    //   });
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/data');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = () => {
+      if (xhr.status === 201) {
         this.scientistStore.push(newScientist);
         let scientist = this.createScientist(newScientist);
         document.querySelector('.scientist-container').insertAdjacentHTML('afterbegin', scientist);
-      });
+      }
+    };
+    xhr.send(JSON.stringify(newScientist));
   };
 
   //SORT SCIENTISTS ELEMENTS IN SCIENTIST CONTAINER DOM
