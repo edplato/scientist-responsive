@@ -8,7 +8,7 @@
   <script type="text/javascript" src="./assets/app.js"></script>
   <title>Great Contributors to Modern Science</title>
 </head>
-<body onload="gs.getScientists()">
+<body onload="getScientists()">
   <div id="app">
     <header class="outer-bg">
       <div class="title">
@@ -20,10 +20,10 @@
         <div class="sort-buttons">
           <label>Last Name</label>
           <label>Birthdate</label>
-            <button type="button" name="a-zsort" onclick="gs.sortScientists('nameAZ')">A-Z</button>
-            <button type="button" name="new-oldsort" onclick="gs.sortScientists('dateNewOld')">Newest-Oldest</button>
-            <button type="button" name="z-asort" onclick="gs.sortScientists('nameZA')">Z-A</button>
-            <button type="button" name="old-newsort" onclick="gs.sortScientists('dateOldNew')">Oldest-Newest</button>
+            <button type="button" name="a-zsort" onclick="sortScientists('nameAZ')">A-Z</button>
+            <button type="button" name="new-oldsort" onclick="sortScientists('dateNewOld')">Newest-Oldest</button>
+            <button type="button" name="z-asort" onclick="sortScientists('nameZA')">Z-A</button>
+            <button type="button" name="old-newsort" onclick="sortScientists('dateOldNew')">Oldest-Newest</button>
         </div>
       </div>
     </header>
@@ -31,7 +31,7 @@
       <div class="scientist-container"></div>
     </section>
     <section class="scientist-input">
-      <form action="javascript:gs.addScientist()">
+      <form action="javascript:addScientist()">
           <div class="textInputContainer">
             <div class="formInput">
               <label for="name">Name</label>
